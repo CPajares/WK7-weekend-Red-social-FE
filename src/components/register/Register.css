@@ -1,0 +1,13 @@
+.form-register {
+  height: 90vh;
+}
+
+h2 {
+  text-align: center;
+}
+
+a,
+a:hover {
+  color: white;
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
 import paths from "../../path/paths";
+import("./Login.css");
 
 const Login = () => {
   const { loginUser } = useRegister();
@@ -35,7 +36,10 @@ const Login = () => {
   };
 
   return (
-    <form className="row" onSubmit={clickLogin}>
+    <form
+      className="form-login row justify-content-center align-items-center"
+      onSubmit={clickLogin}
+    >
       <div className="container-form col-4">
         <div className="form-group">
           <label htmlFor="username">Username: </label>

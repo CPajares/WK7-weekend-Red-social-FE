@@ -3,3 +3,11 @@ a:hover {
   color: white;
   text-decoration: none;
 }
+
+.form-login {
+  height: 90vh;
+}
+
+h2 {
+  text-align: center;
+}
