@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
-import paths from "../../path/path";
+import paths from "../../path/paths";
 
 const Login = () => {
   const { loginUser } = useRegister();
