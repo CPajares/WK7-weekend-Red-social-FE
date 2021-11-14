@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
 import paths from "../../path/path";
 
@@ -9,6 +9,8 @@ const Login = () => {
     username: "",
     password: "",
   };
+
+  const navigate = useNavigate();
 
   const [newLoginData, setNewUserData] = useState(initialLogin);
 
@@ -29,6 +31,7 @@ const Login = () => {
     evento.preventDefault();
     loginUser(newLoginData);
     setNewUserData(initialLogin);
+    navigate(paths.profile);
   };
 
   return (
@@ -62,6 +65,7 @@ const Login = () => {
         <button disabled={isDisabled} type="submit" className="btn btn-info">
           LOGIN
         </button>
+
         <Link to={paths.register}>
           <button type="button" className="btn btn-info">
             REGISTER
