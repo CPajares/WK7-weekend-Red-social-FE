@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import useRegister from "../../hooks/useRegister";
 
 const Register = () => {
+  const { createUser } = useRegister();
   const InitialData = {
     name: "",
     username: "",
@@ -30,7 +32,7 @@ const Register = () => {
 
   const clickRegister = (evento) => {
     evento.preventDefault();
-    /*  createUser(newUserData); */
+    createUser(newUserData);
     setNewUserData(InitialData);
   };
 
