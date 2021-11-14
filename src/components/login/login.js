@@ -5,7 +5,7 @@ import paths from "../../path/paths";
 import("./Login.css");
 
 const Login = () => {
-  const { loginUser } = useRegister();
+  const { loginUser, user } = useRegister();
   const initialLogin = {
     username: "",
     password: "",
@@ -32,8 +32,13 @@ const Login = () => {
     evento.preventDefault();
     loginUser(newLoginData);
     setNewUserData(initialLogin);
-    navigate(paths.profile);
   };
+
+  useEffect(() => {
+    if (user.isAuth) {
+      navigate(paths.profile);
+    }
+  }, [navigate, user.isAuth]);
 
   return (
     <form
