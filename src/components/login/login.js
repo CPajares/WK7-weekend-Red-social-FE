@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import useRegister from "../../hooks/useRegister";
 
 const Login = () => {
+  const { loginUser } = useRegister();
   const initialLogin = {
     username: "",
     password: "",
@@ -23,7 +25,7 @@ const Login = () => {
 
   const clickLogin = (evento) => {
     evento.preventDefault();
-    /*  createUser(newUserData); */
+    loginUser(newLoginData);
     setNewUserData(initialLogin);
   };
 
