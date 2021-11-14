@@ -1,12 +1,26 @@
+import { useEffect } from "react";
 import "./App.css";
 import Login from "./components/login/login";
-import Register from "./components/register/Register";
+import useRegister from "./hooks/useRegister";
 
 function App() {
-  return (
-    <div className="App">
-      <Login />
-    </div>
+  const { user, userIsRegistered } = useRegister();
+
+  const auth = user.isAuth;
+
+  useEffect(() => {
+    userIsRegistered();
+    if (auth) {
+    }
+  }, [auth, userIsRegistered]);
+  return !auth ? (
+    <>
+      <div className="App">
+        <Login />
+      </div>
+    </>
+  ) : (
+    <h1>fadsfads</h1>
   );
 }
 
