@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
 import paths from "../../path/paths";
+import("./Register.css");
 
 const Register = () => {
   const { createUser } = useRegister();
@@ -39,7 +40,10 @@ const Register = () => {
   };
 
   return (
-    <form className="row" onSubmit={clickRegister}>
+    <form
+      className="form-register row justify-content-center align-items-center"
+      onSubmit={clickRegister}
+    >
       <div className="container-form col-4">
         <div className="form-group">
           <label htmlFor="name">Name: </label>
