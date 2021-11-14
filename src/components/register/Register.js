@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
+import paths from "../../path/path";
 
 const Register = () => {
   const { createUser } = useRegister();
@@ -92,6 +94,11 @@ const Register = () => {
         <button disabled={isDisabled} type="submit" className="btn btn-info">
           REGISTER
         </button>
+        <Link to={paths.login}>
+          <button type="button" className="btn btn-info">
+            LOGIN
+          </button>
+        </Link>
       </div>
     </form>
   );
