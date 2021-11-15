@@ -19,3 +19,8 @@ export const getUsersAction = (users) => ({
   type: actionTypes.getUsers,
   users,
 });
+
+export const addFriendAction = (id) => ({
+  type: actionTypes.addFriend,
+  id,
+});

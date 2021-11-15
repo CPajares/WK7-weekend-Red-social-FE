@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  addFriendAction,
   createUserAction,
   getUsersAction,
   loginUserAction,
@@ -31,4 +32,18 @@ export const getUserThunks = () => async (dispatch) => {
     headers: { Authorization: `Bearer ${token}` },
   });
   dispatch(getUsersAction(response.data));
+};
+
+export const addFriendThunks = (id) => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("tokenStorage"));
+  console.log(id);
+  const response = await axios.post(
+    `${apiURL}cranc/friend`,
+    { id },
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
+  console.log(response + "sssssssssssssssssssssssss");
+  dispatch(addFriendAction(response));
 };
