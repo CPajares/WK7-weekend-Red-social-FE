@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userIsRegisterAction } from "../redux/actions/actionCreator";
 import {
+  addFriendThunks,
   getUserThunks,
   loginUserThunks,
   registerUserThunks,
@@ -38,6 +39,10 @@ const useRegister = () => {
     }
   }, [dispatch]);
 
+  const addFriend = (id) => {
+    dispatch(addFriendThunks(id));
+  };
+
   return {
     register,
     user,
@@ -46,6 +51,7 @@ const useRegister = () => {
     loginUser,
     getUserList,
     getUser,
+    addFriend,
   };
 };
 

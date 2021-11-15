@@ -6,6 +6,9 @@ const registerReducer = (register = {}, action) => {
     case actionTypes.createUser:
       newRegister = { ...action.register };
       break;
+    case actionTypes.addFriend:
+      newRegister = { ...action.id };
+      break;
     default:
   }
 
