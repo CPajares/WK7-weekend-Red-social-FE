@@ -3,16 +3,24 @@ import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userIsRegisterAction } from "../redux/actions/actionCreator";
 import {
+  getUserThunks,
   loginUserThunks,
   registerUserThunks,
 } from "../redux/thunks/registerThunks";
 
 const useRegister = () => {
   const dispatch = useDispatch();
-  const { register, user } = useSelector(({ register, user }) => ({
-    register,
-    user,
-  }));
+  const { register, user, getUser } = useSelector(
+    ({ register, user, getUser }) => ({
+      register,
+      user,
+      getUser,
+    })
+  );
+
+  const getUserList = useCallback(() => {
+    dispatch(getUserThunks());
+  }, [dispatch]);
 
   const createUser = (user) => {
     dispatch(registerUserThunks(user));
@@ -36,6 +44,8 @@ const useRegister = () => {
     userIsRegistered,
     createUser,
     loginUser,
+    getUserList,
+    getUser,
   };
 };
 
