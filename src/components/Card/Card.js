@@ -1,6 +1,14 @@
+import useRegister from "../../hooks/useRegister";
+
 import("./Card.css");
 
-const Card = ({ name, age, image, friends, enemies }) => {
+const Card = ({ name, age, image, friends, enemies, id }) => {
+  const { addFriend } = useRegister();
+
+  const addFriendClick = (event) => {
+    event.preventDefault();
+    addFriend(id);
+  };
   return (
     <>
       <div className="card">
@@ -25,7 +33,12 @@ const Card = ({ name, age, image, friends, enemies }) => {
         <div className="mt-5 text-center">
           <h4 className="mb-0">{name}</h4>{" "}
           <span className="text-muted d-block mb-2">{age}</span>{" "}
-          <button className="btn btn-primary btn-sm follow">Friend</button>
+          <button
+            onClick={addFriendClick}
+            className="btn btn-primary btn-sm follow"
+          >
+            Friend
+          </button>
           <button className="btn btn-danger btn-sm follow">Enemy</button>
           <div className="d-flex justify-content-between align-items-center mt-4 px-4">
             <div className="stats">
