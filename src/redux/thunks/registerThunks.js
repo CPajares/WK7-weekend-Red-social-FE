@@ -1,5 +1,9 @@
 import axios from "axios";
-import { createUserAction, loginUserAction } from "../actions/actionCreator";
+import {
+  createUserAction,
+  getUsersAction,
+  loginUserAction,
+} from "../actions/actionCreator";
 import jwtDecode from "jwt-decode";
 
 const apiURL = process.env.REACT_APP_URL_API_HEROKU;
@@ -19,4 +23,12 @@ export const loginUserThunks = (user) => async (dispatch) => {
     dispatch(loginUserAction(user));
     localStorage.setItem("tokenStorage", JSON.stringify({ token }));
   }
+};
+
+export const getUserThunks = () => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("tokenStorage"));
+  const response = await axios.get(`${apiURL}cranc/`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  dispatch(getUsersAction(response.data));
 };
